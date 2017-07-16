@@ -1,0 +1,23 @@
+<% if @songs.count > 0 %>
+  <table>
+    <thead>
+      <tr>
+        <th>Song Title</th>
+        <th>Artist</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @songs.each do |song| %>
+      <tr>
+        <td><%= link_to song.title, song_path(song) %></td>
+        <td><%= song.artist_name %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h3>You have no songs. Add a new song.<h3>
+<% end %>
+<div>
+  <%= link_to "New Song", new_song_path %>
+</div>
