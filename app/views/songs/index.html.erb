@@ -1,0 +1,11 @@
+<h1> Hello!</h1>
+<tbody>
+<%@songs.each do |s|%>
+<tr>
+  <td><%=s.title%></td>
+  <td><%=s.released%></td>
+  <td><%=s.release_year%></td>
+  <td><%=s.artist_name%></td>
+  <td><%=s.genre%></td>
+</tr>
+<%end%></tbody>
