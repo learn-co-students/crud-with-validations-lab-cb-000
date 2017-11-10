@@ -6,7 +6,7 @@ require 'pry'
   end
 
   def show
-    @song = Song.find_by(params[:id])
+    @song = Song.find(params[:id])
   end
 
   def new
@@ -17,7 +17,7 @@ require 'pry'
   def create
 
     @song = Song.new(song_params)
-    binding.pry
+    # binding.pry
     if @song.save
       redirect_to song_path(@song)
     else
@@ -26,14 +26,26 @@ require 'pry'
   end
 
   def edit
-    @song = Song.find_by(params[:id])
+    @song = Song.find(params[:id])
 
   end
 
   def update
+    @song = Song.find(params[:id])
+    @song.update_attributes(song_params)
+    if @song.save
+        redirect_to song_path(@song)
+      else
+        render :edit
+      end
+  end
+
+  def destroy
+    Song.find(params[:id]).destroy
+    redirect_to songs_path
   end
 
   def song_params
-    params.permit(:title, :released, :release_year, :artist_name, :genre)
+    params.require(:song).permit(:title, :released, :release_year, :artist_name, :genre)
   end
 end
