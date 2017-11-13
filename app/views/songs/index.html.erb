@@ -1,4 +1,17 @@
-<% @songs.each do |s| %>
-<<%= s %>
+<table>
+  <thead>
+  <th>song</th>
+  <th>artist</th>
+  <th>genre</th>
+</thead>
+<tbody>
+<% @songs.each_with_index do |s, i| %>
+<tr>
+  <td><<%= s.title %></td>
+  <td><%= s.artist_name %></td>
+  <td><%= s.genre %></td>
+</tr>
 
-<%end%>
+<% end %>
+</tbody>
+</table>
