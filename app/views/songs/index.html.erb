@@ -20,7 +20,7 @@
                     <td><%= song.release_year %></td>
                     <td><%= song.artist_name %></td>
                     <td><%= song.genre %></td>
-                    <td id="delete_td"><%= link_to "Delete", song, method: :delete, data: { confirm: "Are you sure?" } %></td>
+                    <td id="delete_td"><%= button_to "Delete", song, method: :delete %></td>
                 </tr>
                 </tbody>
             <% end %>
