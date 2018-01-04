@@ -1,0 +1,10 @@
+<% @songs.each do |song| %>
+ <table style = "border: 1px solid black;">
+   <thead>
+     <tr><%= link_to song.title, song_path(song.id) %></tr>
+   </thead>
+   <tbody>
+     <tr><%= link_to "delete", song, :method => :delete, data: {:confirm => "Really?"} %></tr>
+   </tbody>
+ </table>
+ <% end %>
