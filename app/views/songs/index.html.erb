@@ -1,10 +1,19 @@
-<% @songs.each do |song| %>
- <table style = "border: 1px solid black;">
-   <thead>
-     <tr><%= link_to song.title, song_path(song.id) %></tr>
-   </thead>
-   <tbody>
-     <tr><%= link_to "delete", song, :method => :delete, data: {:confirm => "Really?"} %></tr>
-   </tbody>
- </table>
- <% end %>
+
+<table style="width:100%">
+  <thead>
+    <th>Title</th>
+    <th>Artist Name</th>
+    <th>Release Year</th>
+  </thead>
+  <tbody>
+    <% @songs.each do |song| %>
+        <tr>
+          <td><%= link_to song.title, song_path(song) %></td>
+          <td><%= song.artist_name %></td>
+          <td><%= song.genre %></td>
+          <td><%= song.release_year %></td></tr>
+          <td><%= link_to "delete", song, :method => :delete, data: {:confirm => "Really?"} %></tr>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
