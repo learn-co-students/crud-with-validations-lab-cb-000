@@ -1,7 +1,9 @@
 <h2>Songs Index</h2>
 
-<ul>
-<% @songs.each do |song| %>
-  <li><%= song.title %></li>
-<% end %>
-</ul>
+<table>
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr><%= song.title %></tr>
+    <% end %>
+  </tbody>
+</table
