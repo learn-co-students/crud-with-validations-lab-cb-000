@@ -1,0 +1,12 @@
+<<%@songs.each do |song|%>
+  <tbody>
+    <tr>
+      <td><%=song.title%></td>
+      <td><%=song.released%></td>
+      <td><%=song.release_year%></td>
+      <td><%=song.artist_name%></td>
+      <td><%=song.genre%></td>
+      <td><%=button_to "Delete", song, method: :delete%></td>
+    </tr>
+  </tbody>
+<%end%>
