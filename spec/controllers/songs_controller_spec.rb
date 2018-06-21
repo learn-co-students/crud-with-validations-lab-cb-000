@@ -21,7 +21,7 @@ RSpec.describe SongsController, type: :controller do
   end
 
   describe "basic listing, viewing and editing" do
-    let(:song) { Song.create!(valid_attributes) }
+    let(:song) { Song.create(valid_attributes) }
 
     it "lists all songs" do
       get :index
@@ -72,7 +72,7 @@ RSpec.describe SongsController, type: :controller do
     let(:new_attributes) do
       { title: "Moon Safari" }
     end
-    let(:song) { Song.create!(valid_attributes) }
+    let(:song) { Song.create(valid_attributes) }
 
     before do
       patch :update, { id: song.id, song: new_attributes }
@@ -104,7 +104,7 @@ RSpec.describe SongsController, type: :controller do
   end
 
   context "destroying a song" do
-    let(:song) { Song.create!(valid_attributes) }
+    let(:song) { Song.create(valid_attributes) }
     before do
       delete :destroy, { id: song.id }
     end
