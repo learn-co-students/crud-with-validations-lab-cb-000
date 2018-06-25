@@ -1,4 +1,5 @@
 require 'rails_helper'
+gem 'byebug'
 
 RSpec.describe Song, type: :model do
   let(:valid_attributes) do
