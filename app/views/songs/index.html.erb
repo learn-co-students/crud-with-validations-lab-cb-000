@@ -1,0 +1,16 @@
+
+<% if @songs.nil? %>
+  There are no songs to display
+<% else %>
+  <tbody>
+      <% @songs.all.each  do |song| %>
+        <tr>
+          <%= song.title %>
+          <%= song.artist_name %>
+          <%= song.genre %>
+          <%= song.released %>
+          <%= song.release_year %>
+        </tr>
+      <% end %>
+  </tbody>
+<% end %>
