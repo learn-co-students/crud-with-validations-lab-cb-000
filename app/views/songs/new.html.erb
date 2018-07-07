@@ -1,0 +1,32 @@
+<%= content_tag :h1, "New Song" %>
+
+  <% if @song.errors.any? %>
+    <%= content_tag :div do %>
+      <%= content_tag :h3, "Error".pluralize(@song.errors.count) + " prevented this song from saving:" %>
+      <%= content_tag :ul do %>
+        <% @song.errors.full_messages.each do |msg| %>
+          <%= content_tag :li, msg %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+<%= form_for @song do |s| %>
+
+  <%= label_tag :song_title, "Song title:"%>
+  <%= s.text_field :title %><br>
+
+  <%= label_tag :song_released, "Released?"%><%= s.check_box :released, value: true  %><br>
+
+  <%= label_tag :song_release_year, "Year released:" %>
+  <%= s.text_field :release_year %><br>
+
+  <%= label_tag :song_artist_name, "Artist:" %>
+  <%= s.text_field :artist_name %><br>
+
+  <%= label_tag :song_genre, "Genre:" %>
+  <%= s.text_field :genre %><br>
+
+  <%= s.submit "Create Song" %>
+
+<% end %>

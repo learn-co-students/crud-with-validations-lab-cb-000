@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   before_action :set_song!, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @songs = Song.all
   end
@@ -10,7 +10,8 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song.create(song_params) ? ( redirect_to song_path(@song) ) : ( render :new )
+    @song = Song.new( song_params(:title, :released, :release_year, :artist_name, :genre) )
+    @song.valid? ? ( @song.save; redirect_to song_path(@song) ) : ( render :new )
   end
 
   def show
@@ -20,7 +21,8 @@ class SongsController < ApplicationController
   end
 
   def update
-    @song.update(song_params) ? ( redirect_to song_path(@song) ) : ( render :edit )
+    @song.update( song_params(:title, :released, :release_year, :artist_name, :genre) )
+    @song.valid? ? ( redirect_to song_path(@song) ) : ( render :edit )
   end
 
   def destroy

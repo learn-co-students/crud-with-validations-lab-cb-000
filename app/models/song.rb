@@ -6,7 +6,7 @@ class Song < ActiveRecord::Base
   validates :artist_name, presence: true
 
   def title_is_unique_to_release_year
-    if released && Song.find_by_release_year(release_year)
+    if released && Song.find_by(release_year: release_year, title: title) 
       errors.add(:title, "must be unique to the year released")
     end
   end

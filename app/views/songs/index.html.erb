@@ -1,6 +1,6 @@
 <%= content_tag :h1, "Songs" %>
 <%= content_tag :ul do %>
   <% @songs.each do |song| %>
-    <%= content_tag :li, song.title %>
+    <%= content_tag :li, song.title + " - " + (song.released ? song.release_year.to_s : "release pending")%>
   <% end %>
 <% end %>
