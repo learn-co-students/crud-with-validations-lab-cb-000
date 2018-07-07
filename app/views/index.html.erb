@@ -1,0 +1,6 @@
+<%= content_tag :h1, "Songs" %>
+<%= content_tag :ul do %>
+  <% @songs.each do |song| %>
+    <%= content_tag :li, song.title %>
+  <% end %>
+<% end %>
