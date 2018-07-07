@@ -11,10 +11,12 @@ class Song < ActiveRecord::Base
   end
 
   def release_year_if_released
-    if released && [nil, 0, ""].any?{|i| i == release_year}
-      errors.add(:release_year, "can't be blank if the song is released")
-    elsif released && release_year > Time.now.year
-      errors.add(:release_year, "can't be greater than the current year")
+    if released
+      if !release_year || release_year == 0
+        errors.add(:release_year, "can't be blank if the song is released")
+      elsif release_year > Time.now.year
+        errors.add(:release_year, "can't be greater than the current year")
+      end
     end
   end
 
