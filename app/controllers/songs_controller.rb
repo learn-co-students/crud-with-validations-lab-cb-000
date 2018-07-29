@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :set_song!, only: [:show, :edit, :update]
+  before_action :set_song!, only: [:show, :edit, :update, :destroy]
   # songs    GET    /songs(.:format)          songs#index
   #          POST   /songs(.:format)          songs#create
   #new_song  GET    /songs/new(.:format)      songs#new
@@ -43,14 +43,14 @@ class SongsController < ApplicationController
   end
 
   def destroy
-    Song.find(params[:id]).destroy
+    @song.destroy
     redirect_to songs_path
   end
 
   private
 
   def song_params
-    params.require(:song).permit(:title, :artist_name, :released, :release_year)
+    params.require(:song).permit(:title, :artist_name, :genre, :released, :release_year)
   end
 
   def set_song!

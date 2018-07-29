@@ -12,8 +12,10 @@
 <% end %>
 
 <br>
+<%= link_to 'View all', songs_path %>
 <%#= link_to "Edit Song", edit_song_path(@song) %>
 
+<br><br>
 <%= form_tag song_path(@song.id), method: "delete" do %>
   <%= submit_tag "Delete #{@song.title} by #{@song.artist_name}" %>
 <% end %>
