@@ -26,7 +26,7 @@
   <%= f.text_field :'genre'%><br>
 
   <label>Released:</label><br>
-  <%= f.check_box :'released' %><br>
+  <%= f.check_box :'released' %><%= f.label :released, "Yes" %><br>
 
   <%# if @song.released %>
     <label>Year released:</label><br>
