@@ -1,0 +1,8 @@
+<%= content_tag :h1, "Songs" %>
+<%= content_tag :table do %>
+  <%= content_tag :tbody do %>
+    <% @songs.each do |song| %>
+      <%= content_tag :tr, song.title + " - " + (song.released ? song.release_year.to_s : "release pending")%><br>
+    <% end %>
+  <% end %>
+<% end %>

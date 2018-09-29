@@ -1,0 +1,13 @@
+<%= content_tag :h1, @song.title %>
+
+<%= content_tag :div do %>
+
+  <%= content_tag :p do %>
+    <%= "Release Year: " + ( @song.released ? @song.release_year.to_s : "Pending" ) %>
+  <% end %>
+
+  <%= content_tag :p, "Artist: " + @song.artist_name %>
+
+  <%= content_tag :p, "Genre: " + @song.genre %>
+
+<% end %>
