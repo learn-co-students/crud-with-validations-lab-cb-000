@@ -1,0 +1,19 @@
+<h1> Index </h1>
+<ul>
+  <% @songs.each do |song| %>
+    <li>
+      <a href=<%= song_path(song) %> >
+      <%= song.title %>
+      </a>
+      by
+      <%= song.artist_name %>
+      in genre:
+      <%= song.genre %>
+      <% if song.released == true %>
+        <%= " released in the year #{song.release_year}" %>
+      <% end %>
+      <%= button_to "edit", edit_song_path(song), method: "get" %>
+      <%= link_to 'Delete', song, method: :delete, data: {confirm: "Really?"} %>
+    </li>
+  <% end %>
+</ul>
