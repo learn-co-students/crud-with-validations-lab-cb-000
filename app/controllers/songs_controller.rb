@@ -26,11 +26,11 @@ class SongsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     @song = Song.new(song_params)
 
     if @song.save
-      redirect song_path(@song)
+      redirect_to song_path(@song)
     else
       render :new
     end
@@ -49,4 +49,3 @@ class SongsController < ApplicationController
     params.permit(:title, :release_year, :released, :artist_name, :genre)
   end
 end
-
