@@ -16,7 +16,6 @@ class Song < ActiveRecord::Base
   end
 
   def song_year_correct?
-    # binding.pry
     if released == true
       if !(0..Date.today.year).include?(release_year)
         errors.add(:release_year, "No release year")
