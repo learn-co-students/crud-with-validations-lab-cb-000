@@ -29,7 +29,7 @@ RSpec.describe SongsController, type: :controller do
     end
 
     it "views a single song" do
-      get :show, params: { id: song.id }
+      get :show, params: id: song.id, as: :json
       expect(assigns(:song)).to eq(song)
     end
 
@@ -91,7 +91,7 @@ RSpec.describe SongsController, type: :controller do
   context "updating a song with invalid data" do
     let(:song) { Song.create!(valid_attributes) }
     before do
-      patch :update, params: { id: song.id, song: invalid_attributes }
+      patch :update, params: id: song.id, song: invalid_attributes, as: :json
     end
 
     it "does not persist changes" do
