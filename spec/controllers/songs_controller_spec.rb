@@ -29,7 +29,7 @@ RSpec.describe SongsController, type: :controller do
     end
 
     it "views a single song" do
-      get :show, params: id: song.id, as: :json
+      get :show, params: { id: song.id }
       expect(assigns(:song)).to eq(song)
     end
 
@@ -40,7 +40,11 @@ RSpec.describe SongsController, type: :controller do
   end
 
   context "creating a valid song" do
-    before { post(:create, { song: valid_attributes }) }
+    before { post(:create, params: {title: "Talisman",
+          artist_name: "Air",
+          release_year: 2007,
+          released: true,
+          genre: "Post-Rock" }) }
 
     it "creates a new Song" do
       expect(Song.count).to eq(1)
@@ -91,7 +95,7 @@ RSpec.describe SongsController, type: :controller do
   context "updating a song with invalid data" do
     let(:song) { Song.create!(valid_attributes) }
     before do
-      patch :update, params: id: song.id, song: invalid_attributes, as: :json
+      patch :update, params: {id: song.id, song: invalid_attributes}, as: :json
     end
 
     it "does not persist changes" do
