@@ -1,0 +1,21 @@
+<h1>Song List</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Genre</th>
+    <th>Release Year</th>
+    <th>Delete</th>
+  </tr>
+  <tbody>
+  <%@songs.each do |song|%>
+    <tr>
+      <td><%=song.title%></td>
+      <td><%=song.artist_name%></td>
+      <td><%=song.genre%></td>
+      <td><%=song.release_year if song.released%></td>
+      <td><%=link_to "Delete", song, method: :delete, data: { confirm: "Really?" }%></td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
