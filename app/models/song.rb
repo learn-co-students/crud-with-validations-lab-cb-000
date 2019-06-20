@@ -4,11 +4,10 @@ class Song < ActiveRecord::Base
   validates :release_year, presence: true, if: :released
   validates :released, inclusion: { in: [true, false] }
   validate :year_restriction
-  validates :genre, presence: true
 
   def year_restriction
     if (release_year != nil) && (release_year > Date.today.year)
-      errors.add(:date, "Date can't be in the future!")
+      errors.add(:year_restriction, "Date can't be in the future!")
     end
   end
 
