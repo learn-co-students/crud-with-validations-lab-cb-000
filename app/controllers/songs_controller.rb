@@ -9,7 +9,7 @@ class SongsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @song = Song.new
   end
 
   def create
