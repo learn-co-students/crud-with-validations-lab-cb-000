@@ -7,7 +7,7 @@ class Song < ActiveRecord::Base
 
   def year_restriction
     if (release_year != nil) && (release_year > Date.today.year)
-      errors.add(:year_restriction, "Date can't be in the future!")
+      errors.add(:release_year, "Date can't be in the future!")
     end
   end
 
