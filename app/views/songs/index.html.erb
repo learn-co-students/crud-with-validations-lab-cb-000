@@ -1,0 +1,20 @@
+<h1>Songs:</h1>
+
+<table width="50%" border="solid">
+  <thead>
+    <tr>
+      <th>Artist</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <% @songs.each do |song| %>
+    <tbody>
+      <tr>
+        <td><%= song.artist_name %></td>
+        <td><%= link_to song.title, song_path(song) %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+
+<%= button_to "Add Song", new_song_path, html_options = { :method => :get } %>
